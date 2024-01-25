@@ -36,6 +36,8 @@ const teams = [
   },
 ];
 
+teamResult = document.getElementById("team");
+
 teams.forEach((team) => {
   team.foul = genRandomNumber(1, 10);
   team.score = genRandomNumber(1, 50);
@@ -43,6 +45,15 @@ teams.forEach((team) => {
 
 const newTeams = teams.map((team) => {
   const { name, foul } = team;
+  const teamHtml = `
+    <div class = "col-md-6 col-lg-4">
+    <div class = "card text-center">
+    <p class="fw-bold fs-5">${name}</p>
+    <p>${foul} falli</p>
+    </div>
+    </div>`;
+
+  teamResult.innerHTML += teamHtml;
   return { name, foul };
 });
 
